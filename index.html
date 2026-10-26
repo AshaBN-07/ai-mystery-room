@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Mystery Room</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background: #101426;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      color: #a78bfa;
+    }
+
+    .room {
+      max-width: 500px;
+      margin: 30px auto;
+      padding: 25px;
+      background: #202944;
+      border: 1px solid #8b5cf6;
+      border-radius: 15px;
+    }
+
+    button, select {
+      padding: 12px;
+      margin: 8px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      background: #8b5cf6;
+      color: white;
+    }
+
+    #mystery {
+      line-height: 1.7;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔎 AI Mystery Room</h1>
+  <p>Every clue tells a story. Can you solve the case?</p>
+
+  <div class="room">
+    <h2>🕵️ Enter the Mystery</h2>
+    <p>Choose your difficulty.</p>
+
+    <select id="difficulty">
+      <option>Easy</option>
+      <option>Medium</option>
+      <option>Hard</option>
+    </select>
+
+    <br>
+    <button onclick="startMystery()">Start Mystery</button>
+
+    <div id="mystery">Your first case is waiting...</div>
+  </div>
+
+  <script>
+    function startMystery() {
+      const level = document.getElementById("difficulty").value;
+
+      document.getElementById("mystery").innerHTML = `
+        <h3>💎 The Missing Diamond</h3>
+        <p>A diamond disappeared from a locked room!</p>
+        <p><b>Difficulty:</b> ${level}</p>
+        <p><b>Suspects:</b> Alex, Mia, and Ryan</p>
+        <button onclick="showClue()">Reveal a Clue</button>
+        <p id="clue"></p>
+      `;
+    }
+
+    function showClue() {
+      document.getElementById("clue").textContent =
+        "🔍 Clue: Muddy footprints were found near the window.";
+    }
+  </script>
+</body>
+</html>
